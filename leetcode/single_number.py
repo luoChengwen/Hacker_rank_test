@@ -23,5 +23,19 @@ class Solution:
     def singleNumber(self, nums): #nums is a list
         ans = nums[0]
         for i in range(1, len(nums)):
+            print(ans, nums[i])
             ans ^= nums[i]   # the idea of xor
+            print(ans)
         return ans
+
+
+# solution 2, easier to understand
+from collections import Counter
+class Solution:
+
+    def singleNumber(self, nums):
+        all_val = Counter(nums)
+        for i in all_val:
+            if all_val[i] == 1:
+
+                return i
