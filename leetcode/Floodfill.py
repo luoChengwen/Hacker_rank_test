@@ -25,25 +25,26 @@ The value of each color in image[i][j] and newColor will be an integer in [0, 65
 '''
 
 
-
 class Solution: # recursive function
 
     def floodFill(self, image, sr: int, sc: int, newColor: int):
 
         color = image[sr][sc]
-        maxrow, maxcol = len(image), len(image[0])
+        maxrow = len(image) - 1
+        maxcol = len(image[0]) - 1
 
         if color == newColor:
             return image
 
-        def refill(r, c):
+        def fill(r, c):
             if image[r][c] == color:
                 image[r][c] = newColor
-                if r >= 1: refill(r-1, c)
-                if r < maxrow - 1: refill(r+1, c)
-                if c >= 1: refill(r, c-1)
-                if c < maxcol - 1: refill(r, c+1)
-        refill(sr, sc)
+                if r >= 1: fill(r - 1, c)
+                if r < maxrow: fill(r + 1, c)
+                if c >= 1: fill(r, c - 1)
+                if c < maxcol: fill(r, c + 1)
+
+        fill(sr, sc)
         return image
 
 
