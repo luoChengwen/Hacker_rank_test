@@ -66,9 +66,7 @@ class Solution:
             arr_max_sum = arr[0]
 
             for num in range(len(arr)):
-                max_end_here += arr[num]
-                if max_end_here < arr[num]:
-                    max_end_here = arr[num]
+                max_end_here = max(max_end_here + arr[num], arr[num])
                 arr_max_sum = max(arr_max_sum, max_end_here)
             return arr_max_sum
 
