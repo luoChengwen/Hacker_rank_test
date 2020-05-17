@@ -44,40 +44,51 @@ class LinkList:
 
         cur = self.head
         i = 0
+
         while cur.next != None:
-            output = cur
+            last_node = cur
+            cur = cur.next
+            if i == index:  last_node.next = cur.next
+            i += 1
+
+    def insert(self, index, val):
+        cur = self.head
+
+        i = 0
+        while cur.next != None:
+            last_node = cur
             cur = cur.next
 
-            if i == index:  output.next = cur.next
-            i += 1
+            if i == index:
+                last_node.next = Node(val)
+                last_node.next.next = cur
+            i+=1
 
     def display(self):
         ds = []
         cur = self.head
-
         while cur.next != None:
             cur = cur.next
             ds.append(cur.data)
-
-
-        print(ds)
-
+        return ds
 
 '''''# test
 '''
-
+#
 test = LinkList()
+output = test.append(1)
 print(test.display())
-test.append(1)
 test.append(2)
 test.append(3)
 test.append(4)
 test.append(5)
 test.append(6)
-
-
-print(test.length())
-print(test.get_data(4))
 print(test.display())
+
+print('length is: ',test.length())
+print('the fourth data in the list is',test.get_data(4))
+
 print(test.delete(2))
+print(test.display())
+print(test.insert(3,4.44))
 print(test.display())
