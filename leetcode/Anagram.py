@@ -25,10 +25,8 @@ class Solution:
         def build_dict(compstr):
             compdict = dict()
             for m in compstr:
-                if m in compdict:
-                    compdict[m] += 1
-                else:
-                    compdict[m] = 1
+                if m in compdict: compdict[m] += 1
+                else: compdict[m] = 1
             return compdict
 
         plen = len(p)
@@ -36,32 +34,17 @@ class Solution:
         to_disp = []
         for i in range(len(s) - plen + 1):
             compstr = s[i: (i + plen)]
-            print(s)
-            if i == 0:  # build dict for the first time
-                com_dict = build_dict(compstr)
-                print(com_dict)
-            else:
-                print(i)
-                print(s[i])
 
+            if i == 0: com_dict = build_dict(compstr)
+            else:
                 prev = s[i - 1]
                 com_dict[prev] -= 1
-                if com_dict[prev] == 0:
-                    com_dict.pop(prev, None)
-
+                if com_dict[prev] == 0: com_dict.pop(prev, None)
                 new = s[i + plen - 1]
-                print(new)
-                print(new in com_dict, new, com_dict)
 
+                if new in com_dict: com_dict[new] += 1
+                else: com_dict[new] = 1
 
-
-                if new in com_dict:
-                    com_dict[new] += 1
-                else:
-                    com_dict[new] = 1
-            print('---')
-
-            if com_dict == dict_p:
-                to_disp.append(i)
+            if com_dict == dict_p: to_disp.append(i)
 
         return to_disp
