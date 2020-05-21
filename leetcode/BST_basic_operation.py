@@ -43,9 +43,6 @@ class Node:
             print(self.val)
             if self.right_child: self.right_child.inorder()
 
-
-
-
     def preorder(self):
         if self:
             print(self.val)
@@ -59,13 +56,6 @@ class Node:
             if self.right_child:
                 self.right_child.postorder()
             print(str(self.val))
-
-    # def postorder(self):
-    #     if self:
-    #         if self.left_child: self.left_child.postorder()
-    #         if self.right_child: self.right_child.postorder()
-    #         print(str(self.val))
-
 
 class BST:
     def __init__(self):
