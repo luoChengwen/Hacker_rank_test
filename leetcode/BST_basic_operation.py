@@ -57,45 +57,6 @@ class Node:
                 self.right_child.postorder()
             print(str(self.val))
 
-class BST:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, data):
-
-        if self.root:
-            return self.root.insert(data)
-        else:
-            self.root = Node(data)
-            return True
-
-    def find(self, data):
-        if self.root:
-            self.root.find(data)
-        else:
-            return False
-
-    '''
-            1
-           / \
-          2   3
-         / \
-        4   5
-
-    inorder: left - root - right 42513
-    preorder: root - left - right 12453
-    postoder: left - right - root 45231
-
-    '''
-
-    def inorder(self):
-        self.root.inorder()
-
-    def preorder(self):
-        self.root.preorder()
-
-    def postorder(self):
-        self.root.postorder()
 
 class BST:
     def __init__(self):
