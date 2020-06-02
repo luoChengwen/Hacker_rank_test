@@ -46,12 +46,11 @@ class Solution:
 # revisited the question by chance and new solution
 
 class Solution:
-    
     def isPerfectSquare(self, num: int) -> bool:
-        comp = True
+
         start = num // 2
         s = False
-        while comp:
+        while True:
             if start ** 2 > num:
                 start //= 2
                 if s: return False
@@ -60,3 +59,5 @@ class Solution:
                 s = True
             else:
                 return True
+
+
