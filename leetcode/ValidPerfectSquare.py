@@ -13,7 +13,7 @@ Input: 14
 Output: false
 '''
 
-
+# solution 1
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         # two pointer
@@ -41,3 +41,22 @@ class Solution:
                     left = (left + right) // 2
 
         return False
+
+
+# revisited the question by chance and new solution
+
+class Solution:
+    
+    def isPerfectSquare(self, num: int) -> bool:
+        comp = True
+        start = num // 2
+        s = False
+        while comp:
+            if start ** 2 > num:
+                start //= 2
+                if s: return False
+            elif start ** 2 < num:
+                start += 1
+                s = True
+            else:
+                return True
