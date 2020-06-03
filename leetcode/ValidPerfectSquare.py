@@ -47,7 +47,6 @@ class Solution:
 
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
-
         start = num // 2
         s = False
         while True:
