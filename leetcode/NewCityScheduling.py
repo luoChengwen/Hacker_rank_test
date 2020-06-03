@@ -29,11 +29,16 @@ class Solution(object):
         """
 
         # my idea is to order the differences first and then decide
-        # how to schedule 
+        # how to schedule
         difs = []
         N = len(costs)
         for i in range(N):
             difs.append([abs(costs[i][0] - costs[i][1]), i])
+
+        ''' ok, I checked faster answers, so we don;t have to
+            create the variable difs, but just directly sort costs based 
+            on lambda x: abs(x[0] - x[1])
+        '''
 
         difs.sort(key=lambda x: x[0], reverse=True)
 
