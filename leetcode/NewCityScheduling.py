@@ -28,6 +28,8 @@ class Solution(object):
         :rtype: int
         """
 
+        # my idea is to order the differences first and then decide
+        # how to schedule 
         difs = []
         N = len(costs)
         for i in range(N):
