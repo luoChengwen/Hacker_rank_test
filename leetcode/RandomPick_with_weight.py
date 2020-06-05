@@ -32,7 +32,7 @@ class Solution(object):
 
         self.array = []
         start = 0
-        for i, c in enumerate(w):
+        for c in w:
             self.array.append([start, start + c])
             start += c
         self.len = len(w) - 1
@@ -57,5 +57,3 @@ class Solution(object):
             elif random_index <= self.array[i][1]:
                 right = i - 1
 
-
-# solution 3: fastest
